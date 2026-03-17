@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>video de cultura digital</title>
+    <title>Video de Cultura Digital</title>
     <style>
-                :root {
-            --color-fondo-arena: #F7F5EE; /* Fondo muy suave */
+        :root {
+            --color-fondo-arena: #F7F5EE;
             --color-texto-principal: #0e0707;
-            --color-acento-tranquilidad: #6cdff1; /* Verde bosque */
-            --color-acento-admiracion: #57b6ce; /* Azul pizarra oscuro */
+            --color-acento-tranquilidad: #6cdff1;
+            --color-acento-admiracion: #57b6ce;
             --color-divisor: #B5B5B5;
             --color-sombra-natural: rgba(0, 0, 0, 0.05);
         }
@@ -23,39 +23,59 @@
             line-height: 1.7;
         }
 
-        /* --- CONTENEDOR Y HEADER ORGÁNICO --- */
+        /* --- CONTENEDOR RESPONSIVO --- */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: clamp(30px, 10vw, 60px) 20px;
             background-image: linear-gradient(180deg, var(--color-acento-tranquilidad) 0%, var(--color-acento-admiracion) 100%);
             color: white;
             border-radius: 10px;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             box-shadow: 0 10px 20px rgba(88, 129, 87, 0.4);
         }
 
         header h1 {
             font-family: 'Garamond', serif;
-            font-size: 3.8em;
-            margin-bottom: 5px;
+            /* El título se hace pequeño en móvil y grande en laptop automáticamente */
+            font-size: clamp(1.8rem, 8vw, 3.8rem); 
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
-        header p {
-            font-size: 1.2em;
-            font-weight: 300;
+        header img {
+            max-width: 100%;
+            height: auto; /* Evita que la imagen se estire feo */
+            border-radius: 8px;
         }
 
-        /* --- SECCIONES DE CONTENIDO --- */
+        /* --- TRUCO PARA VIDEOS QUE NO SE DEFORMAN --- */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 8px;
+            border: none;
+        }
+
         .content-section {
             background-color: white;
-            padding: 35px;
+            padding: clamp(20px, 5vw, 35px);
             border-radius: 8px;
             margin-bottom: 30px;
             box-shadow: 0 4px 10px var(--color-sombra-natural);
@@ -63,12 +83,11 @@
 
         .content-section h2 {
             font-family: 'Garamond', serif;
-            font-size: 2.5em;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             margin-top: 0;
             margin-bottom: 20px;
         }
 
-        /* Títulos de las emociones */
         .emotion-title-tranquilidad {
             color: var(--color-acento-tranquilidad);
             border-left: 5px solid var(--color-acento-tranquilidad);
@@ -81,13 +100,11 @@
             padding-left: 15px;
         }
         
-        /* Divisor elegante */
         .separator {
             border-top: 1px solid var(--color-divisor);
             margin: 30px 0;
         }
 
-        /* --- LISTAS DE CONSEJOS --- */
         ul {
             list-style: none;
             padding-left: 0;
@@ -97,7 +114,6 @@
             position: relative;
             padding-left: 25px;
             margin-bottom: 15px;
-            font-weight: 400;
         }
 
         ul li::before {
@@ -109,17 +125,15 @@
         }
         
         .advice-section {
-            background-color: #EEF3EF; /* Fondo verde muy pálido */
+            background-color: #EEF3EF;
             border: 2px solid var(--color-acento-tranquilidad);
         }
 
-        /* --- ÉNFASIS --- */
         .emphasis {
             font-weight: 700;
             color: var(--color-acento-admiracion);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 25px;
@@ -136,20 +150,20 @@
     <div class="container">
         
         <header>
-            <h1>Tecnologia de la informacion</h1>
-<img src="https://i.pinimg.com/736x/09/b2/31/09b231576d980076f6480c438af228e7.jpg" alt="enupi escribiendo" width="350" height="250">
+            <h1>Tecnología de la información</h1>
+            <img src="https://i.pinimg.com/736x/09/b2/31/09b231576d980076f6480c438af228e7.jpg" alt="enupi escribiendo" width="350">
             <p>"Cobaev 12"</p>
         </header>
 
         <section class="content-section">
             <h2 class="emotion-title-tranquilidad">¿Qué es la Tecnología de la Información (TI)?</h2>
-            <p>En la era digital,<span class="emphasis">la Tecnología de la Información es el motor que impulsa la sociedad</span>.. Se refiere al uso de sistemas, principalmente computadoras y telecomunicaciones, para el almacenamiento, recuperación, transmisión y manipulación de datos.</p>
+            <p>En la era digital, <span class="emphasis">la Tecnología de la Información es el motor que impulsa la sociedad</span>. Se refiere al uso de sistemas, principalmente computadoras y telecomunicaciones, para el almacenamiento, recuperación, transmisión y manipulación de datos.</p>
             
             <div class="separator"></div>
 
             <h2 class="emotion-title-admiracion">Hardware y Software</h2>
-            <p><span class="emphasis">Hardware:</span>.Es la parte física, es decir, es todo lo tangente que se puede tocar (computadoras, servidores, dispositivos móviles).</p>
-            <p><span class="emphasis">Software:</span>.Son los programas y aplicaciones que permiten el funcionamiento de los sistemas informáticos(es lo no tangente).</p>
+            <p><span class="emphasis">Hardware:</span> Es la parte física, es decir, es todo lo tangible que se puede tocar (computadoras, servidores, dispositivos móviles).</p>
+            <p><span class="emphasis">Software:</span> Son los programas y aplicaciones que permiten el funcionamiento de los sistemas informáticos (es lo intangible).</p>
         </section>
 
         <section class="content-section">
@@ -169,22 +183,22 @@
 
         <section class="content-section advice-section">
             <h2 style="text-align: center;" class="emotion-title-admiracion">¿Quieres saber más del tema?</h2>
-            <p style="text-align: center; font-weight: 600;">En esta pagina encontraste los conceptos de algunos elementos que tiene la tecnologia de la informacion</p>
+            <p style="text-align: center; font-weight: 600;">En esta página encontrarás los conceptos de algunos elementos que tiene la tecnología de la información</p>
             
-            <h3>Te invitamos a que veas nuestro video informativo hacerca de las tecnologias de la informacion</h3>
-            <ul>
-                <li>Te ayudara a tener mas conocimiento del tema.</li>
-            </ul>
-<div style="text-align: center;">
+            <h3>Te invitamos a que veas nuestro video informativo:</h3>
+            
+            <div class="video-responsive">
+                <iframe src="https://www.youtube.com/embed/-e9H6hSo_Ow" title="Video Informativo" allowfullscreen></iframe>
+            </div>
 
-<iframe width="717" height="372" src="https://www.youtube.com/embed/-e9H6hSo_Ow" title="RESUMEN: PSG 5-2 CHELSEA | OCTAVOS DE FINAL I IDA | UEFA CHAMPIONS LEAGUE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-
-            <h3 style="margin-top: 30px;">Te dejamos el detras de camaras para que veas como se elaboro el video </h3>
+            <h3 style="margin-top: 30px;">Te dejamos el detrás de cámaras</h3>
             <ul>
-                <li>Te recomendamos ver este video,esta muy divertido y gracioso😂 </li>
-             <iframe width="717" height="372" src="https://www.youtube.com/embed/2t0fHLaUBv0" title="RESUMEN: REAL MADRID 3-0 MANCHESTER CITY | OCTAVOS DE FINAL I IDA | UEFA CHAMPIONS LEAGUE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <li>Te recomendamos ver este video, está muy divertido y gracioso 😂</li>
             </ul>
+
+            <div class="video-responsive">
+                <iframe src="https://www.youtube.com/embed/2t0fHLaUBv0" title="Detrás de cámaras" allowfullscreen></iframe>
+            </div>
         </section>
 
     </div>
@@ -192,10 +206,7 @@
     <footer>
         <p> Gracias por ver. | © 2026 </p>
         <p>COBAEV 12 - Taller de cultura digital</p>
-
     </footer>
 
 </body>
 </html>
-
-        
